@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Css/vidoe_list.css">
+    <title>My videos</title>
+</head>
+<body oncontextmenu="return false">
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact Me</a></li>
+            <li><a class="act" href="videos.html">Videos</a></li>
+            <li><a href="photoss.html">Photo </a></li>
+
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>My Songs</h1>
+        <div id="video_player">
+            <video controls poster="" class="video" id="video">
+                <source src="Video/Avicii - The Nights.mp4" type="video/mp4">
+                <source src="" type="video/mp4">
+            </video>
+            <div class="scrollBox">
+                <div class="box">
+                    <img src="photo/Avicii.jpg">
+                    <div class="box-content">
+                        <h3>Avicii</h3>
+                        <a href="Video/Avicii - The Nights.mp4" class="btn">Watch</a>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="photo/Demons.jpg">
+                    <div class="box-content">
+                        <h3>Song Imagine Demons</h3>
+                        <a href="Video/Demons - Imagine Dragons (Lyrics).mp4" class="btn">Watch</a>
+                    </div>
+                </div>
+                <!-- <div class="box">
+                    <img src="photo/fadeshowe.jpg">
+                    <div class="box-content">
+                        <h3>Song Hamza nimra </h3>
+                        <a href="Video/Hamza Namira - Fady Shewaya __ حمزة نمرة - فاضي شوية.mp4" class="btn">Watch</a>
+                    </div>
+                </div> -->
+                <!-- <div class="box">
+                    <img src="photo/into your.jpg">
+                    <div class="box-content">
+                        <h3>Song into your arms</h3>
+                        <a href="Video/Witt Lowry - Into Your Arms (Lyrics) ft. Ava Max - [No Rap].mp4" class="btn">Watch</a>
+                    </div>
+                </div> -->
+                <!-- <div class="box">
+                    <img src="photo/talking to the moon.jpg">
+                    <div class="box-content">
+                        <h3>SOng Talking to the moon</h3>
+                        <a href="Video/Sickick - Talking to the Moon (Bruno Mars Remix).mp4"class="btn">Watch</a>
+                    </div>
+                </div> -->
+                <!-- <div class="box">
+                    <img src="photo/preset1.jpg">
+                    <div class="box-content">
+                        <h3>How to edit your photo by Lightroom</h3>
+                        <a href="Video/Moody Teal - Lightroom Mobile Presets _ Moody Teal Preset _ DNG Preset.mp4" class="btn">Watch</a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ###########################javascript for vidoe Player################ -->
+
+    <script type="text/javascript">
+        let anchors = document.querySelectorAll('div .btn');
+    let links = [...anchors];
+    
+    for (let i=0; i<links.length; i++) {
+        links[i].onclick = handler;
+    }
+    function handler(e) {
+        e.preventDefault();
+        let videotarget = this.getAttribute("href");
+        let filename = videotarget.substr(0, videotarget.lastIndexOf('.'));
+        let video = document.getElementById("video");
+        video.removeAttribute("poster");
+        let source = document.querySelectorAll("#video_player video source");
+        source[0].src = filename + ".mp4";
+        source[1].src = filename + ".m4v";
+        video.load();
+        video.play();
+    }
+    </script>
+</body>
+</html>
